@@ -1,5 +1,6 @@
 // This is the main.js file. Import global CSS and scripts here.
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
+import VueHead from 'vue-head';
 import Vuetify from 'vuetify';
 import colors from 'vuetify/lib/util/colors';
 import 'vuetify/dist/vuetify.min.css';
@@ -15,22 +16,11 @@ export default function(Vue, { router, head, isClient, appOptions }) {
 
   // Setup vuetify
   Vue.use(Vuetify);
-  const opts = {
-    theme: {
-      light: true,
-      themes: {
-        light: {
-          primary: colors.purple,
-          secondary: colors.grey.darken1,
-          accent: colors.shades.black,
-          error: colors.red.accent3,
-        },
-      },
-    },
-  };
-
+  const opts = {};
   appOptions.vuetify = new Vuetify(opts);
 
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout);
+
+  Vue.use(VueHead);
 }

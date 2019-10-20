@@ -9,8 +9,9 @@
         <v-btn
           text
           href="https://github.com/sakuramochi0/prettyrhythm-prismstone-album"
+          color="pink"
         >
-          <v-icon>mdi-code</v-icon>
+          <v-icon left>code</v-icon>
           GitHub
         </v-btn>
       </v-toolbar-items>
