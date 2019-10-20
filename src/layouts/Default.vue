@@ -5,6 +5,14 @@
         <a to="/">{{ $static.metadata.siteName }}</a>
       </v-toolbar-title>
       <v-spacer />
+      <span class="pr-3">🔍</span>
+      <v-text-field
+              hide-details
+              prepend-icon="mdi-search"
+              single-line
+              placeholder="フェミニン"
+      ></v-text-field>
+      <v-spacer />
       <v-toolbar-items>
         <v-btn
           text
