@@ -13,11 +13,11 @@ module.exports = function(api) {
     const { data } = await axios.get(
         "https://raw.githubusercontent.com/sakuramochi0/prettyrhythm-prismstone-scrapy/master/prismstone_with_brand.json"
     );
-    const prismstoneCollection = addCollection({
-      typeName: "Prismstones"
+    const prismStoneCollection = addCollection({
+      typeName: "PrismStones"
     });
-    for (const prismstone of data) {
-      prismstoneCollection.addNode(prismstone);
+    for (const prismStone of data) {
+      prismStoneCollection.addNode(prismStone);
     }
   });
 
