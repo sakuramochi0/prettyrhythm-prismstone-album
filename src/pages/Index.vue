@@ -1,21 +1,17 @@
 <template>
   <Layout>
-    <div class="prism-stone-list">
-      <PrismStoneCard
-        v-for="(prismStone, i) in $page.prismStones.edges"
-        :prism-stone="prismStone"
-        :key="prismStone.id"
-      />
-    </div>
+    <PrismStoneCard class="prism-stone-card"
+      v-for="(prismStone, i) in $page.prismStones.edges"
+      :prism-stone="prismStone"
+      :key="prismStone.id"
+    />
   </Layout>
 </template>
 
-<style scoped lang="scss">
-.prism-stone-list {
-  /*display: flex;*/
-}
+<style>
 .prism-stone-card {
-  /*flex: 1;*/
+  display: inline-block;
+  margin: 1rem;
 }
 </style>
 
@@ -24,7 +20,7 @@ import PrismStoneCard from '~/components/PrismStoneCard.vue';
 
 export default {
   metaInfo: {
-    title: 'プリズムストーン一覧',
+    title: 'プリズムストーンアルバム',
   },
   name: 'PrismStoneList',
   components: {

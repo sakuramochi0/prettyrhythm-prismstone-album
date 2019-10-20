@@ -1,12 +1,24 @@
 <template>
-  <div class="prism-stone-card">
-    <img
-      :src="prismStone.node.img_url"
-      loading="lazy"
-      :title="getTitle(prismStone.node)"
-    />
-    <p>{{ prismStone.node.brand }}<br />{{ prismStone.node.category }}</p>
-  </div>
+  <v-card width="540">
+    <v-row>
+      <v-col>
+        <v-img
+          width="200"
+          class="mx-auto mt-3"
+          :src="prismStone.node.img_url"
+          loading="lazy"
+        />
+      </v-col>
+      <v-col>
+        <v-card-title>{{ prismStone.node.name }}</v-card-title>
+        <v-card-subtitle>{{ prismStone.node.series }}</v-card-subtitle>
+        <v-card-text class="text--primary">
+          {{ prismStone.node.id }} / {{ prismStone.node.brand }} /
+          {{ prismStone.node.category }}
+        </v-card-text>
+      </v-col>
+    </v-row>
+  </v-card>
 </template>
 
 <script>
@@ -29,17 +41,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-.prism-stone-card {
-  display: inline-block;
-  border: 1px black solid;
-  padding: 1rem;
-  margin: 1rem;
-  width: 120px;
-  height: 180px;
-  img {
-    max-width: 120px;
-  }
-}
-</style>

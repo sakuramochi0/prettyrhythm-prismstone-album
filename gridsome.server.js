@@ -5,9 +5,21 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const nodeExternals = require('webpack-node-externals');
 const axios = require('axios');
 
 module.exports = function(api) {
+  // Avoid compiling vietify codes
+  api.chainWebpack((config, { isServer }) => {
+    if (isServer) {
+      config.externals([
+        nodeExternals({
+          whitelist: [/^vuetify/],
+        }),
+      ]);
+    }
+  });
+
   api.loadSource(async ({ addCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
     const { data } = await axios.get(

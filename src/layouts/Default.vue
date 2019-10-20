@@ -1,17 +1,26 @@
 <template>
-  <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <a href="https://github.com/sakuramochi0/prettyrhythm-prismstone-album"
-          >GitHub</a
+  <v-app>
+    <v-app-bar app fixed>
+      <v-toolbar-title>
+        <a to="/">{{ $static.metadata.siteName }}</a>
+      </v-toolbar-title>
+      <v-spacer />
+      <v-toolbar-items>
+        <v-btn
+          text
+          href="https://github.com/sakuramochi0/prettyrhythm-prismstone-album"
         >
-      </nav>
-    </header>
-    <slot />
-  </div>
+          <v-icon>mdi-code</v-icon>
+          GitHub
+        </v-btn>
+      </v-toolbar-items>
+    </v-app-bar>
+    <v-content>
+      <v-container>
+        <slot />
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <static-query>
@@ -21,32 +30,3 @@ query {
   }
 }
 </static-query>
-
-<style>
-body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.5;
-}
-
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-}
-
-.nav__link {
-  margin-left: 20px;
-}
-</style>
