@@ -1,6 +1,7 @@
 <template>
   <Layout>
-    <PrismStoneCard class="prism-stone-card"
+    <PrismStoneCard
+      class="prism-stone-card"
       v-for="(prismStone, i) in $page.prismStones.edges"
       :prism-stone="prismStone"
       :key="prismStone.id"
@@ -19,9 +20,6 @@
 import PrismStoneCard from '~/components/PrismStoneCard.vue';
 
 export default {
-  metaInfo: {
-    title: 'プリズムストーンアルバム',
-  },
   name: 'PrismStoneList',
   components: {
     PrismStoneCard,

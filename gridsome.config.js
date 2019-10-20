@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'プリズムストーンアルバム',
+  siteName: '💛 プリズムストーンアルバム',
   plugins: [],
   siteUrl: 'https://sakuramochi.github.io',
   pathPrefix: '/prettyrhythm-prismstone-album',
