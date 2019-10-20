@@ -1,8 +1,18 @@
 <template>
   <Layout>
+    <v-row>
+      <span class="ma-5 ml-10">🔍</span>
+      <v-text-field
+        hide-details
+        single-line
+        placeholder="フェミニン"
+        v-model="searchKeyword"
+      ></v-text-field>
+    </v-row>
     <PrismStoneCard
       class="prism-stone-card"
-      v-for="(prismStone, i) in $page.prismStones.edges"
+      v-for="prismStone in $page.prismStones.edges"
+      v-if="prismStone.node.name.includes(searchKeyword)"
       :prism-stone="prismStone"
       :key="prismStone.id"
     />
@@ -23,6 +33,11 @@ export default {
   name: 'PrismStoneList',
   components: {
     PrismStoneCard,
+  },
+  data() {
+    return {
+      searchKeyword: '',
+    };
   },
 };
 </script>
