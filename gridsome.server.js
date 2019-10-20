@@ -5,16 +5,16 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-const axios = require("axios");
+const axios = require('axios');
 
 module.exports = function(api) {
   api.loadSource(async ({ addCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
     const { data } = await axios.get(
-        "https://raw.githubusercontent.com/sakuramochi0/prettyrhythm-prismstone-scrapy/master/prismstone_with_brand.json"
+      'https://raw.githubusercontent.com/sakuramochi0/prettyrhythm-prismstone-scrapy/master/prismstone_with_brand.json'
     );
     const prismStoneCollection = addCollection({
-      typeName: "PrismStones"
+      typeName: 'PrismStones',
     });
     for (const prismStone of data) {
       prismStoneCollection.addNode(prismStone);

@@ -1,10 +1,5 @@
 <template>
   <div class="prism-stone-card">
-    <!--    <p>id: {{  }}</p>-->
-    <!--    <p>name: {{ prismStone.node.name }}</p>-->
-    <!--    <p>brand: {{ prismStone.node.brand }}</p>-->
-    <!--    <p>category: {{ prismStone.node.category }}</p>-->
-    <!--    <p>series: {{ prismStone.node.series }}</p>-->
     <img
       :src="prismStone.node.img_url"
       loading="lazy"
@@ -16,7 +11,7 @@
 
 <script>
 export default {
-  name: "PrismStoneCard",
+  name: 'PrismStoneCard',
   props: {
     prismStone: {
       id: String,
@@ -24,14 +19,14 @@ export default {
       brand: String,
       category: String,
       series: String,
-      img_url: String
-    }
+      img_url: String,
+    },
   },
   methods: {
     getTitle(prismStone) {
       return `${prismStone.id} ${prismStone.name} [${prismStone.series}]`;
-    }
-  }
+    },
+  },
 };
 </script>
 

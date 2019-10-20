@@ -20,16 +20,16 @@
 </style>
 
 <script>
-import PrismStoneCard from "~/components/PrismStoneCard.vue";
+import PrismStoneCard from '~/components/PrismStoneCard.vue';
 
 export default {
   metaInfo: {
-    title: "プリズムストーン一覧"
+    title: 'プリズムストーン一覧',
   },
-  name: "PrismStoneList",
+  name: 'PrismStoneList',
   components: {
-    PrismStoneCard
-  }
+    PrismStoneCard,
+  },
 };
 </script>
 
