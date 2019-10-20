@@ -1,20 +1,17 @@
 <template>
   <Layout>
-    <v-row>
-      <v-col>
-        <v-row>
-          <span class="ma-5 ml-10">🔍</span>
-          <v-text-field
-            hide-details
-            single-line
-            placeholder="フェミニン"
-            v-model="searchKeyword"
-            @focus="() => (this.isSearching = true)"
-            @blur="() => (this.isSearching = false)"
-          ></v-text-field>
-        </v-row>
-      </v-col>
-    </v-row>
+    <v-form class="mb-3">
+      <v-text-field
+        hide-details
+        single-line
+        prepend-icon="search"
+        placeholder="フェミニン"
+        v-model="searchKeyword"
+        @focus="() => (this.isSearching = true)"
+        @blur="() => (this.isSearching = false)"
+      ></v-text-field>
+    </v-form>
+    <v-spacer />
     <v-banner
       >{{ searchResults.length }} 個のプリズムストーンが見つかったよ！</v-banner
     >
@@ -22,21 +19,16 @@
       :indeterminate="isSearching"
       color="pink"
     ></v-progress-linear>
-    <PrismStoneCard
-      class="prism-stone-card"
-      v-for="prismStone in searchResults"
-      :prism-stone="prismStone"
-      :key="prismStone.id"
-    />
+    <v-container d-flex flex-wrap justify-center px-0>
+      <PrismStoneCard
+        class="prism-stone-card mx-2 mb-3"
+        v-for="prismStone in searchResults"
+        :prism-stone="prismStone"
+        :key="prismStone.id"
+      />
+    </v-container>
   </Layout>
 </template>
-
-<style>
-.prism-stone-card {
-  display: inline-block;
-  margin: 1rem;
-}
-</style>
 
 <script>
 import Fuse from 'fuse.js';
