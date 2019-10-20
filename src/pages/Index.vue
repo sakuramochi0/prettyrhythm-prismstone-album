@@ -1,33 +1,51 @@
 <template>
   <Layout>
-
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
+    <div class="prism-stone-list">
+      <PrismStoneCard
+        v-for="(prismStone, i) in $page.prismStones.edges"
+        :prism-stone="prismStone"
+        :key="prismStone.id"
+      />
+    </div>
   </Layout>
 </template>
 
-<script>
-export default {
-  metaInfo: {
-    title: 'Hello, world!'
-  }
+<style scoped lang="scss">
+.prism-stone-list {
+  /*display: flex;*/
 }
-</script>
-
-<style>
-.home-links a {
-  margin-right: 1rem;
+.prism-stone-card {
+  /*flex: 1;*/
 }
 </style>
+
+<script>
+import PrismStoneCard from "~/components/PrismStoneCard.vue";
+
+export default {
+  metaInfo: {
+    title: "プリズムストーン一覧"
+  },
+  name: "PrismStoneList",
+  components: {
+    PrismStoneCard
+  }
+};
+</script>
+
+<page-query>
+query {
+  prismStones: allPrismStones {
+    edges {
+      node {
+        id
+        name
+        brand
+        category
+        series
+        img_url
+      }
+    }
+  }
+}
+</page-query>
