@@ -1,6 +1,7 @@
 <template>
   <Layout>
     <v-text-field
+            class="pb-3"
       hide-details
       single-line
       prepend-icon="search"
