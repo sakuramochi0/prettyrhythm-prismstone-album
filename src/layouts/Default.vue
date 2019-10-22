@@ -24,6 +24,13 @@
   </v-app>
 </template>
 
+<style lang="scss">
+// Prevent the title text ellipsized on devices with narrow width
+.v-toolbar__content {
+  padding-right: 0;
+}
+</style>
+
 <static-query>
 query {
   metadata {
