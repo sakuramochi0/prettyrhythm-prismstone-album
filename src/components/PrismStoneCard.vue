@@ -1,15 +1,16 @@
 <template>
-  <v-card width="540">
+  <v-card :width="onlyStone ? 110 : 540">
     <v-row>
-      <v-col cols="4">
+      <v-col :cols="onlyStone ? null : 4">
         <v-img
-          width="180"
-          class="ma-auto mx-5 my-5"
+          :width="onlyStone ? 90 : 180"
+          :height="onlyStone ? 85 : null"
+          :class="{ 'ma-auto': true, 'mx-5': !onlyStone, 'my-5': !onlyStone }"
           :src="prismStone.img_url"
           loading="lazy"
         />
       </v-col>
-      <v-col cols="8">
+      <v-col cols="8" v-show="!onlyStone">
         <v-card-subtitle class="pb-0">{{ prismStone.id }}</v-card-subtitle>
         <v-card-title>{{ prismStone.name }}</v-card-title>
         <v-card-subtitle>{{ prismStone.series }}</v-card-subtitle>
@@ -25,6 +26,7 @@
 export default {
   name: 'PrismStoneCard',
   props: {
+    onlyStone: Boolean,
     prismStone: {
       id: String,
       name: String,

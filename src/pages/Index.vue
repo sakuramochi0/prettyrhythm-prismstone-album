@@ -20,10 +20,24 @@
       :indeterminate="isSearching"
       color="pink"
     ></v-progress-linear>
-    <v-container d-flex flex-wrap justify-center px-0>
+    <v-btn
+      :key="onlyStone"
+      color="pink lighten-2"
+      dark
+      fab
+      large
+      fixed
+      right
+      bottom
+      @click="() => (this.onlyStone = !this.onlyStone)"
+    >
+      <v-icon>{{ onlyStone ? 'view_agenda' : 'view_module' }}</v-icon>
+    </v-btn>
+    <v-container d-flex flex-wrap justify-center px-0 mb-12>
       <PrismStoneCard
         class="prism-stone-card mx-2 mb-3"
         v-for="prismStone in searchResults"
+        :only-stone="onlyStone"
         :prism-stone="prismStone"
         :key="prismStone.id"
       />
@@ -47,6 +61,7 @@ export default {
       searchKeyword: this.$route.query.q || '',
       searchIndex: null,
       isSearching: false,
+      onlyStone: false,
     };
   },
   computed: {
