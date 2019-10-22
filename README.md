@@ -22,6 +22,14 @@ $ yarn develop
 $ open http://localhost:8080
 ```
 
+## 主な技術スタック
+
+- [Gridsome](https://gridsome.org/) v0.7
+  - [Vue.js](http://vuejs.org/) v2
+  - [GraphQL](http://graphql.org/)
+- [Vuetify](https://vuetifyjs.com/) v2
+- [Fuse.js](https://fusejs.io/) v3
+
 ## ライセンス
 
-GNU GPL v3
+[GNU GPL v3](./LICENSE)
