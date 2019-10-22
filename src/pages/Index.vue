@@ -1,16 +1,14 @@
 <template>
   <Layout>
-    <v-form class="mb-3">
-      <v-text-field
-        hide-details
-        single-line
-        prepend-icon="search"
-        placeholder="ハピなる フェミニン RONI キャラストーン…"
-        v-model="searchKeyword"
-        @focus="() => (this.isSearching = true)"
-        @blur="() => (this.isSearching = false)"
-      ></v-text-field>
-    </v-form>
+    <v-text-field
+      hide-details
+      single-line
+      prepend-icon="search"
+      placeholder="ハピなる フェミニン RONI キャラストーン…"
+      @focus="() => (this.isSearching = true)"
+      @blur="() => (this.isSearching = false)"
+      @keydown.enter="search"
+    ></v-text-field>
     <v-spacer />
     <v-banner
       >{{ searchResults.length }} 個のプリズムストーンが見つかったよ！</v-banner
@@ -76,6 +74,9 @@ export default {
   methods: {
     insertHead() {
       document.body.appendChild(domify(headFragment));
+    },
+    search(e) {
+      this.searchKeyword = e.target.value;
     },
   },
   mounted() {
