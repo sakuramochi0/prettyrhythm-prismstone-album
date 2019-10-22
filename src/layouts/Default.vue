@@ -12,9 +12,7 @@
           color="pink"
         >
           <v-icon left>code</v-icon>
-          <span class="d-none d-sm-flex">
-            GitHub
-          </span>
+          Code
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
