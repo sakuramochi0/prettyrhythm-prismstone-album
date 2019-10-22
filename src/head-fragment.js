@@ -11,4 +11,18 @@ export default `
   name="viewport"
   content="width=device-width, initial-scale=1, viewport-fit=cover"
 />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=UA-7053288-4"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-7053288-4');
+</script>
 `;
