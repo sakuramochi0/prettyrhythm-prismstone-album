@@ -9,6 +9,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "domify": "^1.4.0",
     "fuse.js": "^3.4.5",
     "gridsome": "^0.7.0",
     "vue-head": "^2.1.2",

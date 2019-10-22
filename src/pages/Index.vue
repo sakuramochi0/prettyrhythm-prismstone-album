@@ -33,6 +33,8 @@
 <script>
 import Fuse from 'fuse.js';
 import PrismStoneCard from '~/components/PrismStoneCard.vue';
+import domify from 'domify';
+import headFragment from '../head-fragment';
 
 export default {
   name: 'PrismStoneList',
@@ -71,12 +73,20 @@ export default {
       return results;
     },
   },
+  methods: {
+    insertHead() {
+      document.body.appendChild(domify(headFragment));
+    },
+  },
   mounted() {
     const options = {
       shouldSort: true,
       keys: ['id', 'name', 'series', 'brand', 'category'],
     };
     this.searchIndex = new Fuse(this.prismStones, options);
+
+    // Temporary workaround to avoid the vue-meta problem Gridsome & Vuetify v2
+    this.insertHead();
   },
 };
 </script>
