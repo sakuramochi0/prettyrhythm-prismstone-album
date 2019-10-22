@@ -5,7 +5,7 @@
         hide-details
         single-line
         prepend-icon="search"
-        placeholder="フェミニン"
+        placeholder="ハピなる フェミニン RONI キャラストーン…"
         v-model="searchKeyword"
         @focus="() => (this.isSearching = true)"
         @blur="() => (this.isSearching = false)"
