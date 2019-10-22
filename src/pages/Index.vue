@@ -1,7 +1,8 @@
 <template>
   <Layout>
     <v-text-field
-            class="pb-3"
+      id="search"
+      class="pb-3"
       hide-details
       single-line
       prepend-icon="search"
@@ -9,6 +10,7 @@
       @focus="() => (this.isSearching = true)"
       @blur="() => (this.isSearching = false)"
       @keydown.enter="search"
+      :value="$route.query.q || ''"
     ></v-text-field>
     <v-spacer />
     <v-banner
@@ -40,21 +42,9 @@ export default {
   components: {
     PrismStoneCard,
   },
-  head: {
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    ],
-    link: [
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
-      },
-    ],
-  },
   data() {
     return {
-      searchKeyword: '',
+      searchKeyword: this.$route.query.q || '',
       searchIndex: null,
       isSearching: false,
     };
@@ -77,8 +67,16 @@ export default {
       document.body.appendChild(domify(headFragment));
     },
     search(e) {
-      this.searchKeyword = e.target.value;
+      const newSearchKeyword = e.target.value;
+      this.searchKeyword = newSearchKeyword;
+      this.$router.push(`/?q=${newSearchKeyword}`);
     },
+  },
+  beforeRouteUpdate(to, _, next) {
+    const newSearchKeyword = to.query.q;
+    this.searchKeyword = newSearchKeyword;
+    document.querySelector('#search').value = newSearchKeyword;
+    next();
   },
   mounted() {
     const options = {
