@@ -7,6 +7,6 @@
 module.exports = {
   siteName: '💛 プリズムストーンアルバム',
   plugins: [],
-  siteUrl: 'https://sakuramochi.github.io',
+  siteUrl: 'https://sakuramochi0.github.io',
   pathPrefix: '/prettyrhythm-prismstone-album',
 };
