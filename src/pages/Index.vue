@@ -106,8 +106,7 @@ export default {
       document.body.appendChild(domify(headFragment));
     },
     updateQuery() {
-      const likedIds = [...this.likedIds].join(',');
-      this.$router.push(`/?q=${this.searchKeyword}&liked-ids=${likedIds}`);
+      this.$router.push(`/?q=${this.searchKeyword}`);
     },
     search(e) {
       this.searchKeyword = e.target.value;
@@ -120,7 +119,6 @@ export default {
         this.likedIds.delete(id);
       }
       localStorage.setItem('likedIds', JSON.stringify([...this.likedIds]));
-      this.updateQuery();
     },
   },
   beforeRouteUpdate(to, _, next) {
