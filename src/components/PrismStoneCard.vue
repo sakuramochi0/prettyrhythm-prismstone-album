@@ -1,5 +1,9 @@
 <template>
-  <v-card :width="onlyStone ? 110 : 540">
+  <v-card
+    :width="onlyStone ? 110 : 540"
+    :color="like ? 'pink lighten-5' : null"
+    @click="clickCard"
+  >
     <v-row>
       <v-col :cols="onlyStone ? null : 4">
         <v-img
@@ -18,6 +22,17 @@
           {{ prismStone.brand }} / {{ prismStone.category }}
         </v-card-text>
       </v-col>
+      <v-icon
+        :large="!onlyStone"
+        :style="{
+          position: 'absolute',
+          right: onlyStone ? '4px' : '8px',
+          bottom: onlyStone ? '4px' : '8px',
+        }"
+        :color="like ? 'pink' : null"
+      >
+        mdi-heart
+      </v-icon>
     </v-row>
   </v-card>
 </template>
@@ -25,8 +40,14 @@
 <script>
 export default {
   name: 'PrismStoneCard',
+  data() {
+    return {
+      like: this.initialLike,
+    };
+  },
   props: {
     onlyStone: Boolean,
+    initialLike: Boolean,
     prismStone: {
       id: String,
       name: String,
@@ -34,6 +55,12 @@ export default {
       category: String,
       series: String,
       img_url: String,
+    },
+  },
+  methods: {
+    clickCard() {
+      this.like = !this.like;
+      this.$emit('click-card', this.prismStone.id, this.like);
     },
   },
 };

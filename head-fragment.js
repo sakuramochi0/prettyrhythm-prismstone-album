@@ -3,6 +3,11 @@ module.exports = `
       data-vue-tag="1"
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />   
+     <link
+      data-vue-tag="1"
+      rel="stylesheet"
+      href="https://unpkg.com/@mdi/font@4.5.95/css/materialdesignicons.min.css"
     />
     <meta data-vue-tag="1" charset="utf-8" />
     <meta

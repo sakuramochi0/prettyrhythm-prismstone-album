@@ -40,6 +40,8 @@
         :only-stone="onlyStone"
         :prism-stone="prismStone"
         :key="prismStone.id"
+        @click-card="clickCard"
+        :initial-like="likedIds.has(prismStone.id)"
       />
     </v-container>
   </Layout>
@@ -62,6 +64,8 @@ export default {
       searchIndex: null,
       isSearching: false,
       onlyStone: false,
+      likedIds:
+        new Set(JSON.parse(localStorage.getItem('likedIds'))) || new Set(),
     };
   },
   computed: {
@@ -81,10 +85,22 @@ export default {
     insertHead() {
       document.body.appendChild(domify(headFragment));
     },
+    updateQuery() {
+      const likedIds = [...this.likedIds].join(',');
+      this.$router.push(`/?q=${this.searchKeyword}&liked-ids=${likedIds}`);
+    },
     search(e) {
-      const newSearchKeyword = e.target.value;
-      this.searchKeyword = newSearchKeyword;
-      this.$router.push(`/?q=${newSearchKeyword}`);
+      this.searchKeyword = e.target.value;
+      this.updateQuery();
+    },
+    clickCard(id, like) {
+      if (like) {
+        this.likedIds.add(id);
+      } else {
+        this.likedIds.delete(id);
+      }
+      localStorage.setItem('likedIds', JSON.stringify([...this.likedIds]));
+      this.updateQuery();
     },
   },
   beforeRouteUpdate(to, _, next) {
