@@ -5,7 +5,7 @@
     "build": "gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore",
-    "predeploy": "yarn build",
+    "predeploy": "yarn build; node insert-head.js",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {

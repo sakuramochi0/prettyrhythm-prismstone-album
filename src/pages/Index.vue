@@ -49,7 +49,7 @@
 import Fuse from 'fuse.js';
 import PrismStoneCard from '~/components/PrismStoneCard.vue';
 import domify from 'domify';
-import headFragment from '../head-fragment';
+import headFragment from '../../head-fragment';
 
 export default {
   name: 'PrismStoneList',
