@@ -21,7 +21,19 @@
       color="pink"
     ></v-progress-linear>
     <v-btn
-      :key="onlyStone"
+      color="pink lighten-2"
+      dark
+      fab
+      large
+      fixed
+      right
+      bottom
+      @click="() => (this.onlyLiked = !this.onlyLiked)"
+      class="only-liked-button"
+    >
+      <v-icon>{{ onlyLiked ? 'mdi-heart-outline' : ' mdi-heart' }}</v-icon>
+    </v-btn>
+    <v-btn
       color="pink lighten-2"
       dark
       fab
@@ -37,6 +49,7 @@
       <PrismStoneCard
         class="prism-stone-card mx-2 mb-3"
         v-for="prismStone in searchResults"
+        v-if="!onlyLiked || likedIds.has(prismStone.id)"
         :only-stone="onlyStone"
         :prism-stone="prismStone"
         :key="prismStone.id"
@@ -46,6 +59,12 @@
     </v-container>
   </Layout>
 </template>
+
+<style scoped>
+.only-liked-button {
+  margin-right: 80px;
+}
+</style>
 
 <script>
 import Fuse from 'fuse.js';
@@ -64,6 +83,7 @@ export default {
       searchIndex: null,
       isSearching: false,
       onlyStone: false,
+      onlyLiked: false,
       likedIds:
         new Set(JSON.parse(localStorage.getItem('likedIds'))) || new Set(),
     };
