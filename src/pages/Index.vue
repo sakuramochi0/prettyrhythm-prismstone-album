@@ -84,7 +84,7 @@ export default {
       isSearching: false,
       onlyStone: false,
       onlyLiked: false,
-      likedIds:
+      likedIds: process.isServer ? new Set() :
         new Set(JSON.parse(localStorage.getItem('likedIds'))) || new Set(),
     };
   },
