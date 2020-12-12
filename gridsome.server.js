@@ -23,7 +23,7 @@ module.exports = function(api) {
   api.loadSource(async ({ addCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
     const { data } = await axios.get(
-      'https://raw.githubusercontent.com/sakuramochi0/prettyrhythm-prismstone-scrapy/master/prismstone_with_brand.json'
+      'https://sakuramochi0.github.io/prettyrhythm-prismstone-scrapy/prismstone_with_brand_gcs.json'
     );
     const prismStoneCollection = addCollection({
       typeName: 'PrismStones',
