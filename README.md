@@ -18,12 +18,23 @@
 
 ## 開発方法
 
+### develop
+
 ```console
-$ git clone https://github.com/sakuramochi0/prettyrhythm-prismstone-album
-$ cd prettyrhythm-prismstone-album/
-$ yarn
-$ yarn develop
-$ open http://localhost:8080
+make container-build
+make start
+```
+
+### build
+
+```console
+make build
+```
+
+### deploy
+
+```console
+make deploy
 ```
 
 ## 主な技術スタック
@@ -37,3 +48,5 @@ $ open http://localhost:8080
 ## ライセンス
 
 [GNU GPL v3](./LICENSE)
+
+ただし、スクリーンショットのプリズムストーンの画像を除く。
