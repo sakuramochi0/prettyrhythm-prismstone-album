@@ -2,10 +2,9 @@
   "name": "prettyrhythm-prismstone-album",
   "scripts": {
     "build": "gridsome build",
-    "start": "gridsome develop",
+    "dev": "gridsome develop",
     "explore": "gridsome explore",
-    "predeploy": "yarn build && node insert-head.js",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "yarn build && node insert-head.js"
   },
   "dependencies": {
     "domify": "^1.4.0",
